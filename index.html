@@ -1,145 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SecureHomes — Student Accommodation Made Secure</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureHomes — Find Verified Student Accommodation</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="description" content="SecureHomes — verified student accommodation, secure booking, escrow payments." />
 </head>
-<body class="antialiased text-slate-800">
+<body class="text-gray-900">
 
   <!-- Background -->
   <div class="fixed inset-0 -z-10">
-    <img src="assets/bg.jpg" alt="background" class="w-full h-full object-cover filter brightness-50" />
+    <img src="assets/bg.jpg" alt="background" class="w-full h-full object-cover opacity-60">
   </div>
 
-  <!-- Nav -->
-  <nav class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
-    <a href="index.html" class="text-white font-bold text-2xl">🏠 SecureHomes</a>
-    <div class="hidden md:flex gap-6 items-center">
-      <a href="index.html" class="text-white hover:underline">Home</a>
-      <a href="about.html" class="text-white hover:underline">About</a>
-      <a href="why.html" class="text-white hover:underline">Why Choose Us</a>
-      <a href="faq.html" class="text-white hover:underline">FAQ</a>
-      <a href="contact.html" class="text-white hover:underline">Contact</a>
-      <a href="register.html" class="bg-white/90 text-slate-900 px-4 py-2 rounded-md font-medium">Sign Up</a>
-      <a href="login.html" class="text-white border border-white/30 px-3 py-2 rounded-md">Login</a>
-    </div>
-
-    <!-- Mobile menu -->
-    <div class="md:hidden">
-      <button id="menuBtn" class="text-white">☰</button>
-    </div>
-  </nav>
-
-  <!-- Mobile menu panel -->
-  <div id="mobileMenu" class="hidden md:hidden bg-black/60 text-white p-6">
-    <a href="index.html" class="block py-2">Home</a>
-    <a href="about.html" class="block py-2">About</a>
-    <a href="why.html" class="block py-2">Why Choose Us</a>
-    <a href="faq.html" class="block py-2">FAQ</a>
-    <a href="contact.html" class="block py-2">Contact</a>
-    <div class="mt-4">
-      <a href="register.html" class="block py-2 bg-white/90 text-slate-900 rounded-md px-3">Sign Up</a>
-      <a href="login.html" class="block py-2 mt-2 border border-white/30 rounded-md px-3">Login</a>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <header class="min-h-[60vh] flex items-center">
-    <div class="max-w-6xl mx-auto px-6 py-16">
-      <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">SecureHomes</h1>
-        <p class="mt-4 text-white/90 text-lg">Find verified student accommodation, book securely with escrow, and move in without the stress.</p>
-        <div class="mt-6 flex gap-4">
-          <a href="why.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-md font-semibold">Why SecureHomes</a>
-          <a href="register.html" class="bg-white/90 text-slate-900 px-5 py-3 rounded-md font-semibold">Get Started — Sign Up</a>
-        </div>
-
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-white/90">
-          <div class="p-4">
-            <h3 class="font-semibold">Verified Listings</h3>
-            <p class="text-sm">Properties physically verified to reduce scams.</p>
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold">Escrow Payments</h3>
-            <p class="text-sm">Secure transactions that protect students and landlords.</p>
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold">AI Recommendations</h3>
-            <p class="text-sm">Match properties to student preferences and budgets.</p>
-          </div>
-        </div>
-
-      </div>
+  <!-- Navbar -->
+  <header class="bg-black/50 backdrop-blur-md text-white fixed w-full top-0 left-0 z-10">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">🏠 SecureHomes</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-indigo-400">Home</a>
+        <a href="about.html" class="hover:text-indigo-400">About</a>
+        <a href="why.html" class="hover:text-indigo-400">Why Choose Us</a>
+        <a href="faq.html" class="hover:text-indigo-400">FAQ</a>
+        <a href="contact.html" class="hover:text-indigo-400">Contact</a>
+        <a href="register.html" class="bg-indigo-500 px-4 py-2 rounded-md font-semibold">Register</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden">☰</button>
     </div>
   </header>
 
-  <!-- Features -->
-  <section class="max-w-6xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white/90 rounded-xl p-6">
-        <h4 class="font-bold text-lg">How it works</h4>
-        <ol class="mt-3 list-decimal pl-5 text-sm space-y-2">
-          <li>Sign up and verify your student ID</li>
-          <li>Browse verified listings and virtual tours</li>
-          <li>Book with escrow protection and move-in</li>
-        </ol>
-      </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden bg-black/80 text-white p-4 space-y-2 fixed top-16 w-full z-10">
+    <a href="index.html" class="block">Home</a>
+    <a href="about.html" class="block">About</a>
+    <a href="why.html" class="block">Why Choose Us</a>
+    <a href="faq.html" class="block">FAQ</a>
+    <a href="contact.html" class="block">Contact</a>
+    <a href="register.html" class="block bg-indigo-500 text-center rounded-md py-2">Register</a>
+  </div>
 
-      <div class="bg-white/90 rounded-xl p-6">
-        <h4 class="font-bold text-lg">For Landlords</h4>
-        <p class="mt-2 text-sm">Join as a verified landlord, subscribe for premium placement, and access long-term tenants from institutions.</p>
-      </div>
-
-      <div class="bg-white/90 rounded-xl p-6">
-        <h4 class="font-bold text-lg">Partnerships</h4>
-        <p class="mt-2 text-sm">Universities and student unions can onboard housing databases and provide safer options for their students.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="max-w-6xl mx-auto px-6 pb-20">
-    <div class="bg-white/10 p-8 rounded-xl flex flex-col md:flex-row items-center justify-between">
-      <div>
-        <h3 class="text-xl font-bold text-white">Ready to secure your stay?</h3>
-        <p class="text-white/90 mt-2">Register today and find a verified place before resumption.</p>
-      </div>
-      <div class="mt-6 md:mt-0">
-        <a href="register.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-md font-semibold">Create Account</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">Find Your Next Student Home</h2>
+    <p class="text-lg text-white mt-4 max-w-xl">SecureHomes helps students find verified, affordable accommodation with secure booking and payment protection.</p>
+    <div class="mt-8 space-x-4">
+      <a href="register.html" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md font-semibold">Get Started</a>
+      <a href="why.html" class="bg-white/90 text-gray-900 px-6 py-3 rounded-md font-semibold">Learn More</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-black/40 text-white py-8">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-6">
-      <div>
-        <h4 class="font-bold text-lg">SecureHomes</h4>
-        <p class="text-sm mt-2">Because every student deserves a safe place to call home.</p>
-      </div>
-      <div>
-        <h5 class="font-semibold">Navigate</h5>
-        <ul class="mt-2 text-sm">
-          <li><a href="about.html" class="hover:underline">About</a></li>
-          <li><a href="why.html" class="hover:underline">Why Choose Us</a></li>
-          <li><a href="faq.html" class="hover:underline">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5 class="font-semibold">Contact</h5>
-        <p class="text-sm mt-2">hello@securehomes.ng</p>
-      </div>
-    </div>
+  <footer class="bg-black/70 text-white py-6 text-center">
+    <p>© 2025 SecureHomes. All rights reserved.</p>
+    <p class="text-sm mt-2">Because every student deserves a safe place to call home.</p>
   </footer>
 
   <script>
     // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn?.addEventListener('click', () => {
+    menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
   </script>
