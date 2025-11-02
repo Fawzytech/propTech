@@ -46,97 +46,125 @@
     </div>
   </section>
 
-<!-- Explore Listings by Location -->
+<!-- Featured Locations Section -->
 <section class="py-16 px-6 bg-gray-100 text-center">
-  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
-    Explore Listings by Location
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10">
+    Featured Locations
   </h2>
 
-  <!-- Location Buttons -->
-  <div class="flex flex-wrap justify-center gap-4 mb-10">
-    <button onclick="showListings('schoolgate')" class="location-btn bg-blue-600 text-white px-6 py-2 rounded-full font-medium">School Gate</button>
-    <button onclick="showListings('satellite')" class="location-btn bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-medium hover:bg-blue-600 hover:text-white">Satellite Gate</button>
-    <button onclick="showListings('iworoko')" class="location-btn bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-medium hover:bg-blue-600 hover:text-white">Iworoko</button>
-    <button onclick="showListings('phasetwo')" class="location-btn bg-gray-200 text-gray-800 px-6 py-2 rounded-full font-medium hover:bg-blue-600 hover:text-white">Phase Two</button>
-  </div>
+  <!-- Area Cards -->
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
-  <!-- School Gate Listings -->
-  <div id="schoolgate" class="hidden">
-    <h3 class="text-2xl font-semibold text-gray-800 mb-6">🏫 School Gate Listings</h3>
-    <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Apartment" class="w-full h-56 object-cover">
-        <div class="p-5">
-          <h4 class="text-xl font-semibold text-gray-800">Classic Apartment</h4>
-          <p class="text-gray-600 mt-2">2 Bedrooms · Wi-Fi · Near EKSU</p>
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-blue-600 font-semibold text-lg">$700/mo</span>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-          </div>
-        </div>
+    <!-- School Gate -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="School Gate" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">School Gate</h3>
+        <p class="text-gray-600 mt-2">Hostels close to campus main gate with easy transport access.</p>
+        <button onclick="toggleHostels('schoolgate')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
       </div>
-      <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Hostel Room" class="w-full h-56 object-cover">
-        <div class="p-5">
-          <h4 class="text-xl font-semibold text-gray-800">Student Lodge</h4>
-          <p class="text-gray-600 mt-2">1 Bedroom · 24/7 Light · Gated</p>
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-blue-600 font-semibold text-lg">$500/mo</span>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-          </div>
-        </div>
+    </div>
+
+    <!-- Satellite Gate -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Satellite Gate" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">Satellite Gate</h3>
+        <p class="text-gray-600 mt-2">Modern apartments and lodges with top facilities.</p>
+        <button onclick="toggleHostels('satellite')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+      </div>
+    </div>
+
+    <!-- Iworoko -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Iworoko" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">Iworoko</h3>
+        <p class="text-gray-600 mt-2">Affordable hostels surrounded by student-friendly shops.</p>
+        <button onclick="toggleHostels('iworoko')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+      </div>
+    </div>
+
+    <!-- Phase Two -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" alt="Phase Two" class="w-full h-48 object-cover">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">Phase Two</h3>
+        <p class="text-gray-600 mt-2">Quiet environment with modern homes and shared spaces.</p>
+        <button onclick="toggleHostels('phasetwo')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
       </div>
     </div>
   </div>
 
-  <!-- Satellite Gate Listings -->
-  <div id="satellite" class="hidden">
-    <h3 class="text-2xl font-semibold text-gray-800 mb-6">🛰️ Satellite Gate Listings</h3>
-    <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-        <img src="https://images.unsplash.com/photo-1598300056393-4a3e4b74e0b2?auto=format&fit=crop&w=800&q=80" alt="Luxury Home" class="w-full h-56 object-cover">
-        <div class="p-5">
-          <h4 class="text-xl font-semibold text-gray-800">Luxury Duplex</h4>
-          <p class="text-gray-600 mt-2">3 Bedrooms · AC · Parking Space</p>
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-blue-600 font-semibold text-lg">$1,200/mo</span>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
+  <!-- HOSTEL LISTINGS (hidden by default) -->
+  <div id="hostel-listings" class="hidden mt-16">
+    <!-- SCHOOL GATE HOSTELS -->
+    <div id="schoolgate" class="hidden">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">🏫 School Gate Hostels</h3>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Hostel 1" class="w-full h-56 object-cover">
+          <div class="p-5">
+            <h4 class="text-xl font-semibold text-gray-800">Bright Lodge</h4>
+            <p class="text-gray-600 mt-2">1 Room · Wi-Fi · Near EKSU Main Gate</p>
+            <div class="flex justify-between items-center mt-4">
+              <span class="text-blue-600 font-bold">$500/mo</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Iworoko Listings -->
-  <div id="iworoko" class="hidden">
-    <h3 class="text-2xl font-semibold text-gray-800 mb-6">🏠 Iworoko Listings</h3>
-    <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-        <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" alt="Cozy Studio" class="w-full h-56 object-cover">
-        <div class="p-5">
-          <h4 class="text-xl font-semibold text-gray-800">Cozy Studio</h4>
-          <p class="text-gray-600 mt-2">1 Bedroom · Borehole · Close to Market</p>
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-blue-600 font-semibold text-lg">$400/mo</span>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
+    <!-- SATELLITE GATE HOSTELS -->
+    <div id="satellite" class="hidden">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">🛰️ Satellite Gate Hostels</h3>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="Hostel 2" class="w-full h-56 object-cover">
+          <div class="p-5">
+            <h4 class="text-xl font-semibold text-gray-800">Elite Residence</h4>
+            <p class="text-gray-600 mt-2">2 Rooms · AC · 24/7 Power</p>
+            <div class="flex justify-between items-center mt-4">
+              <span class="text-blue-600 font-bold">$800/mo</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Phase Two Listings -->
-  <div id="phasetwo" class="hidden">
-    <h3 class="text-2xl font-semibold text-gray-800 mb-6">🏡 Phase Two Listings</h3>
-    <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-      <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="Modern Home" class="w-full h-56 object-cover">
-        <div class="p-5">
-          <h4 class="text-xl font-semibold text-gray-800">Modern Home</h4>
-          <p class="text-gray-600 mt-2">2 Bedrooms · Balcony · 24/7 Water</p>
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-blue-600 font-semibold text-lg">$850/mo</span>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
+    <!-- IWOROKO HOSTELS -->
+    <div id="iworoko" class="hidden">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">🏠 Iworoko Hostels</h3>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Hostel 3" class="w-full h-56 object-cover">
+          <div class="p-5">
+            <h4 class="text-xl font-semibold text-gray-800">Comfort Villa</h4>
+            <p class="text-gray-600 mt-2">1 Room · Borehole · Student Friendly</p>
+            <div class="flex justify-between items-center mt-4">
+              <span class="text-blue-600 font-bold">$400/mo</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE TWO HOSTELS -->
+    <div id="phasetwo" class="hidden">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">🏡 Phase Two Hostels</h3>
+      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+          <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="Hostel 4" class="w-full h-56 object-cover">
+          <div class="p-5">
+            <h4 class="text-xl font-semibold text-gray-800">Green Haven</h4>
+            <p class="text-gray-600 mt-2">2 Rooms · Spacious · Secure Compound</p>
+            <div class="flex justify-between items-center mt-4">
+              <span class="text-blue-600 font-bold">$650/mo</span>
+              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
+            </div>
           </div>
         </div>
       </div>
@@ -144,26 +172,17 @@
   </div>
 </section>
 
-<!-- JS to toggle sections -->
+<!-- JS Logic -->
 <script>
-  function showListings(area) {
-    // Hide all listings first
-    document.querySelectorAll('#schoolgate, #satellite, #iworoko, #phasetwo').forEach(section => {
-      section.classList.add('hidden');
-    });
+  function toggleHostels(area) {
+    const listings = document.getElementById("hostel-listings");
+    listings.classList.remove("hidden");
 
-    // Show the selected one
-    document.getElementById(area).classList.remove('hidden');
+    // Hide all hostel groups first
+    document.querySelectorAll("#schoolgate, #satellite, #iworoko, #phasetwo").forEach(div => div.classList.add("hidden"));
 
-    // Update button styles
-    document.querySelectorAll('.location-btn').forEach(btn => {
-      btn.classList.remove('bg-blue-600', 'text-white');
-      btn.classList.add('bg-gray-200', 'text-gray-800');
-    });
-
-    // Highlight the active button
-    event.target.classList.add('bg-blue-600', 'text-white');
-    event.target.classList.remove('bg-gray-200', 'text-gray-800');
+    // Show selected group
+    document.getElementById(area).classList.remove("hidden");
   }
 </script>
 
@@ -174,6 +193,7 @@
 
 </body>
 </html>
+
 
 
 
