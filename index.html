@@ -282,6 +282,200 @@ function closeModal(area) {
 }
 </script>
 
+  <!-- 🏡 FEATURE LISTING / AREA SECTION -->
+<section class="py-16 bg-gray-50" id="areas">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">Find Hostels by Area</h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- School Gate -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+        <img src="images/schoolgate.jpg" alt="School Gate Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">School Gate</h3>
+          <p class="text-gray-600 mb-4">Hostels close to university entrance for quick access to campus.</p>
+          <button onclick="openModal('schoolgate')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Satellite Gate -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/satellite.jpg" alt="Satellite Gate Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Satellite Gate</h3>
+          <p class="text-gray-600 mb-4">Peaceful environment with affordable hostels and easy transport.</p>
+          <button onclick="openModal('satellite')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Iworoko -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <img src="images/iworoko.jpg" alt="Iworoko Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Iworoko</h3>
+          <p class="text-gray-600 mb-4">Student-friendly area with cheaper hostels and food options.</p>
+          <button onclick="openModal('iworoko')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Phase Two -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+        <img src="images/phase2.jpg" alt="Phase Two Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Phase Two</h3>
+          <p class="text-gray-600 mb-4">Modern hostels with top-notch facilities and close amenities.</p>
+          <button onclick="openModal('phase2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🪟 MODALS SECTION -->
+<!-- School Gate Modal -->
+<div id="modal-schoolgate" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-600">Hostels around School Gate</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel1.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Elite Hostel</h4>
+          <p class="text-gray-600 text-sm">₦250,000/year — 5 min walk to campus</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel2.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Comfort Villa</h4>
+          <p class="text-gray-600 text-sm">₦200,000/year — Free Wi-Fi and water</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel3.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Prime Lodge</h4>
+          <p class="text-gray-600 text-sm">₦300,000/year — Close to mini mart</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end">
+      <button onclick="closeModal('schoolgate')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Satellite Gate Modal -->
+<div id="modal-satellite" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-600">Hostels around Satellite Gate</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel4.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Harmony Lodge</h4>
+          <p class="text-gray-600 text-sm">₦220,000/year — 24/7 Power Supply</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel5.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Satellite Suites</h4>
+          <p class="text-gray-600 text-sm">₦280,000/year — Spacious and clean rooms</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel6.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Peace Court</h4>
+          <p class="text-gray-600 text-sm">₦230,000/year — Security guaranteed</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end">
+      <button onclick="closeModal('satellite')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Iworoko Modal -->
+<div id="modal-iworoko" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-600">Hostels around Iworoko</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel7.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Victory Hostel</h4>
+          <p class="text-gray-600 text-sm">₦180,000/year — Budget-friendly</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel8.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Student Villa</h4>
+          <p class="text-gray-600 text-sm">₦190,000/year — Close to local markets</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel9.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Golden Stay</h4>
+          <p class="text-gray-600 text-sm">₦200,000/year — Constant water & Wi-Fi</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end">
+      <button onclick="closeModal('iworoko')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Phase Two Modal -->
+<div id="modal-phase2" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-600">Hostels around Phase Two</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel10.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Luxury Haven</h4>
+          <p class="text-gray-600 text-sm">₦350,000/year — Premium furnished rooms</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel11.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Prime Villa</h4>
+          <p class="text-gray-600 text-sm">₦340,000/year — Water & 24hr Power</p>
+        </div>
+      </div>
+      <div class="border rounded-lg overflow-hidden shadow">
+        <img src="images/hostel12.jpg" class="w-full h-40 object-cover">
+        <div class="p-3">
+          <h4 class="font-bold text-gray-800">Serene Lodge</h4>
+          <p class="text-gray-600 text-sm">₦320,000/year — CCTV & Security Guard</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end">
+      <button onclick="closeModal('phase2')" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- 💡 JS for Modals -->
+<script>
+function openModal(area) {
+  document.getElementById(`modal-${area}`).classList.remove('hidden');
+  document.getElementById(`modal-${area}`).classList.add('flex');
+}
+function closeModal(area) {
+  document.getElementById(`modal-${area}`).classList.add('hidden');
+  document.getElementById(`modal-${area}`).classList.remove('flex');
+}
+</script>
+
   <!-- WHY CHOOSE US SECTION -->
 <section class="py-20 bg-white text-center">
   <div class="max-w-6xl mx-auto px-6">
@@ -429,6 +623,7 @@ function closeModal(area) {
 
 </body>
 </html>
+
 
 
 
