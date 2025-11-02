@@ -46,146 +46,110 @@
     </div>
   </section>
 
-<!-- FEATURED LOCATIONS SECTION -->
+<!-- FEATURED AREAS SECTION -->
 <section class="py-16 px-6 bg-gray-100 text-center">
-  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10">
-    Featured Areas
-  </h2>
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10">Featured Areas</h2>
 
-  <!-- AREA CARDS -->
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-
-    <!-- School Gate -->
+    <!-- SCHOOL GATE -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
       <img src="https://images.unsplash.com/photo-1600585154154-8f8bdee6e4b1?auto=format&fit=crop&w=800&q=80" alt="School Gate" class="w-full h-48 object-cover">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">School Gate</h3>
-        <p class="text-gray-600 mt-2">Hostels close to campus with easy transport access.</p>
-        <button onclick="toggleHostels('schoolgate')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <p class="text-gray-600 mt-2">Hostels close to campus main gate with transport access.</p>
+        <button onclick="openHostel('schoolGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
       </div>
     </div>
 
-    <!-- Satellite Gate -->
+    <!-- SATELLITE GATE -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
       <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="Satellite Gate" class="w-full h-48 object-cover">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">Satellite Gate</h3>
-        <p class="text-gray-600 mt-2">Modern lodges with full amenities and 24/7 power.</p>
-        <button onclick="toggleHostels('satellite')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <p class="text-gray-600 mt-2">Modern lodges with all facilities and 24/7 power.</p>
+        <button onclick="openHostel('satelliteGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
       </div>
     </div>
 
-    <!-- Iworoko -->
+    <!-- IWOROKO -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
       <img src="https://images.unsplash.com/photo-1600585154207-9a5b92f3a9e7?auto=format&fit=crop&w=800&q=80" alt="Iworoko" class="w-full h-48 object-cover">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">Iworoko</h3>
-        <p class="text-gray-600 mt-2">Affordable hostels with nearby student-friendly shops.</p>
-        <button onclick="toggleHostels('iworoko')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <p class="text-gray-600 mt-2">Affordable student hostels near local shops.</p>
+        <button onclick="openHostel('iworoko')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
       </div>
     </div>
 
-    <!-- Phase Two -->
+    <!-- PHASE TWO -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
       <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" alt="Phase Two" class="w-full h-48 object-cover">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">Phase Two</h3>
-        <p class="text-gray-600 mt-2">Quiet environment with modern homes and great views.</p>
-        <button onclick="toggleHostels('phasetwo')" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- HOSTEL LISTINGS (HIDDEN INITIALLY) -->
-  <div id="hostel-listings" class="mt-12 hidden transition-all duration-500 ease-in-out">
-    <!-- SCHOOL GATE HOSTELS -->
-    <div id="schoolgate" class="hidden">
-      <h3 class="text-2xl font-bold text-gray-800 mb-6">🏫 School Gate Hostels</h3>
-      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-5">
-            <h4 class="text-xl font-semibold text-gray-800">Bright Lodge</h4>
-            <p class="text-gray-600 mt-2">1 Room · Wi-Fi · Close to Main Gate</p>
-            <div class="flex justify-between items-center mt-4">
-              <span class="text-blue-600 font-bold">$500/mo</span>
-              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- SATELLITE GATE HOSTELS -->
-    <div id="satellite" class="hidden">
-      <h3 class="text-2xl font-bold text-gray-800 mb-6">🛰️ Satellite Gate Hostels</h3>
-      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-5">
-            <h4 class="text-xl font-semibold text-gray-800">Elite Residence</h4>
-            <p class="text-gray-600 mt-2">2 Rooms · AC · Parking Lot</p>
-            <div class="flex justify-between items-center mt-4">
-              <span class="text-blue-600 font-bold">$800/mo</span>
-              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- IWOROKO HOSTELS -->
-    <div id="iworoko" class="hidden">
-      <h3 class="text-2xl font-bold text-gray-800 mb-6">🏠 Iworoko Hostels</h3>
-      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-5">
-            <h4 class="text-xl font-semibold text-gray-800">Comfort Villa</h4>
-            <p class="text-gray-600 mt-2">1 Room · Borehole · Student Area</p>
-            <div class="flex justify-between items-center mt-4">
-              <span class="text-blue-600 font-bold">$400/mo</span>
-              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PHASE TWO HOSTELS -->
-    <div id="phasetwo" class="hidden">
-      <h3 class="text-2xl font-bold text-gray-800 mb-6">🏡 Phase Two Hostels</h3>
-      <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
-          <div class="p-5">
-            <h4 class="text-xl font-semibold text-gray-800">Green Haven</h4>
-            <p class="text-gray-600 mt-2">2 Rooms · 24/7 Light · Balcony</p>
-            <div class="flex justify-between items-center mt-4">
-              <span class="text-blue-600 font-bold">$650/mo</span>
-              <button class="bg-blue-600 text-white px-4 py-2 rounded-full">Book</button>
-            </div>
-          </div>
-        </div>
+        <p class="text-gray-600 mt-2">Peaceful area with beautiful shared apartments.</p>
+        <button onclick="openHostel('phaseTwo')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SCRIPT -->
+<!-- HOSTEL POPUP MODAL -->
+<div id="hostelModal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-center z-50">
+  <div class="bg-white rounded-2xl w-11/12 md:w-2/3 lg:w-1/2 p-6 relative">
+    <button onclick="closeHostel()" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+    <h3 id="modalTitle" class="text-2xl font-bold mb-4 text-center text-gray-800"></h3>
+
+    <div id="hostelList" class="grid md:grid-cols-2 gap-6"></div>
+  </div>
+</div>
+
+<!-- SCRIPT FOR MODAL LOGIC -->
 <script>
-  function toggleHostels(area) {
-    const listings = document.getElementById("hostel-listings");
-    listings.classList.remove("hidden");
+  const hostelData = {
+    schoolGate: [
+      { name: "Grace Villa", price: "₦180,000 / year", image: "https://images.unsplash.com/photo-1600585154207-9a5b92f3a9e7?auto=format&fit=crop&w=800&q=80" },
+      { name: "Peace Lodge", price: "₦200,000 / year", image: "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" },
+    ],
+    satelliteGate: [
+      { name: "Royal Suites", price: "₦250,000 / year", image: "https://images.unsplash.com/photo-1600585154154-8f8bdee6e4b1?auto=format&fit=crop&w=800&q=80" },
+      { name: "Comfort Villa", price: "₦230,000 / year", image: "https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" },
+    ],
+    iworoko: [
+      { name: "Victory Lodge", price: "₦150,000 / year", image: "https://images.unsplash.com/photo-1600585154154-8f8bdee6e4b1?auto=format&fit=crop&w=800&q=80" },
+      { name: "Divine Hostel", price: "₦170,000 / year", image: "https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" },
+    ],
+    phaseTwo: [
+      { name: "Harmony Place", price: "₦220,000 / year", image: "https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" },
+      { name: "Golden Homes", price: "₦240,000 / year", image: "https://images.unsplash.com/photo-1600585154207-9a5b92f3a9e7?auto=format&fit=crop&w=800&q=80" },
+    ]
+  };
 
-    // Hide all hostel groups
-    document.querySelectorAll("#schoolgate, #satellite, #iworoko, #phasetwo").forEach(div => div.classList.add("hidden"));
+  function openHostel(area) {
+    const modal = document.getElementById("hostelModal");
+    const title = document.getElementById("modalTitle");
+    const list = document.getElementById("hostelList");
 
-    // Show the one that was clicked
-    document.getElementById(area).classList.remove("hidden");
+    title.innerText = area.replace(/([A-Z])/g, ' $1').trim() + " Hostels";
+    list.innerHTML = hostelData[area].map(
+      (hostel) => `
+      <div class="border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+        <img src="${hostel.image}" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">${hostel.name}</h4>
+          <p class="text-gray-600">${hostel.price}</p>
+          <button class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-full">Book Now</button>
+        </div>
+      </div>
+      `
+    ).join("");
 
-    // Smooth scroll to hostels
-    listings.scrollIntoView({ behavior: 'smooth' });
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function closeHostel() {
+    const modal = document.getElementById("hostelModal");
+    modal.classList.add("hidden");
   }
 </script>
 
@@ -196,6 +160,7 @@
 
 </body>
 </html>
+
 
 
 
