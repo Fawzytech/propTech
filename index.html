@@ -15,7 +15,7 @@
 </head>
 <body class="bg-gray-50">
 
-    <!-- Navbar -->
+     <!-- Navbar -->
   <nav class="flex items-center justify-between px-8 py-4 bg-white shadow">
     <div class="flex items-center space-x-3">
       <h1 class="text-2xl font-bold text-blue-600">SecureHomes</h1>
@@ -28,7 +28,7 @@
       <button id="loginBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium">
         Login
       </button>
-      <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium">
+      <button id="signupBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium">
         Sign Up
       </button>
     </div>
@@ -39,48 +39,79 @@
     <div class="bg-white rounded-lg shadow-lg p-8 w-96 relative">
       <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
       <form id="loginForm" class="space-y-4">
-        <input type="text" placeholder="Full Name" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <input type="text" placeholder="Username" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <input type="email" placeholder="Email" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" placeholder="Email or JAMB Reg" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
         <input type="password" placeholder="Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
         <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-          Submit
+          Login
         </button>
       </form>
-      <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+      <button id="closeLogin" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden overflow-auto">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 relative">
+      <h2 class="text-2xl font-bold mb-4 text-center">Sign Up</h2>
+      <form id="signupForm" class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="text" placeholder="Username" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="email" placeholder="Email" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="password" placeholder="Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="password" placeholder="Confirm Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="text" placeholder="JAMB Registration Number" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <label class="block text-gray-700">Upload JAMB Admission Letter:</label>
+        <input type="file" accept=".pdf,.jpg,.png" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          Sign Up
+        </button>
+      </form>
+      <button id="closeSignup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
     </div>
   </div>
 
   <!-- JavaScript -->
   <script>
+    // Buttons
     const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+
+    // Modals
     const loginModal = document.getElementById('loginModal');
-    const closeModal = document.getElementById('closeModal');
+    const signupModal = document.getElementById('signupModal');
 
-    // Show modal when login button is clicked
-    loginBtn.addEventListener('click', () => {
-      loginModal.classList.remove('hidden');
-    });
+    // Close buttons
+    const closeLogin = document.getElementById('closeLogin');
+    const closeSignup = document.getElementById('closeSignup');
 
-    // Close modal
-    closeModal.addEventListener('click', () => {
-      loginModal.classList.add('hidden');
-    });
+    // Show login modal
+    loginBtn.addEventListener('click', () => loginModal.classList.remove('hidden'));
 
-    // Close modal when clicking outside the form
-    loginModal.addEventListener('click', (e) => {
-      if(e.target === loginModal){
-        loginModal.classList.add('hidden');
-      }
-    });
+    // Show signup modal
+    signupBtn.addEventListener('click', () => signupModal.classList.remove('hidden'));
 
-    // Optional: handle form submission
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
+    // Close modals
+    closeLogin.addEventListener('click', () => loginModal.classList.add('hidden'));
+    closeSignup.addEventListener('click', () => signupModal.classList.add('hidden'));
+
+    // Close modals by clicking outside
+    loginModal.addEventListener('click', e => { if(e.target === loginModal) loginModal.classList.add('hidden'); });
+    signupModal.addEventListener('click', e => { if(e.target === signupModal) signupModal.classList.add('hidden'); });
+
+    // Form submission (replace alert with backend logic)
+    document.getElementById('loginForm').addEventListener('submit', e => {
       e.preventDefault();
-      alert('Login form submitted!');
+      alert('Login submitted!');
       loginModal.classList.add('hidden');
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Sign Up submitted!');
+      signupModal.classList.add('hidden');
     });
   </script>
+  
   <!-- Hero Banner Section -->
   <section class="relative h-[90vh] flex items-center justify-center text-white">
     <!-- Background Image -->
@@ -546,6 +577,7 @@
 
 </body>
 </html>
+
 
 
 
