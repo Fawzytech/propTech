@@ -46,111 +46,99 @@
     </div>
   </section>
 
-    <!-- Featured Listings by Category -->
-  <section class="py-16 px-6 bg-gray-100">
-    <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
-      Featured Listings by Location
-    </h2>
+<!-- Featured Listings by Location -->
+<section class="py-16 px-6 bg-gray-100">
+  <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">
+    Explore Listings by Location
+  </h2>
 
-    <div class="max-w-6xl mx-auto space-y-16">
-      
-      <!-- School Gate -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">🏫 School Gate</h3>
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Apartment" class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h4 class="text-xl font-semibold text-gray-800">Classic Apartment</h4>
-              <p class="text-gray-600 mt-2">2 Bedrooms · Wi-Fi · Near EKSU</p>
-              <div class="flex items-center justify-between mt-4">
-                <span class="text-blue-600 font-semibold text-lg">$700/mo</span>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-            <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80" alt="Hostel Room" class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h4 class="text-xl font-semibold text-gray-800">Student Lodge</h4>
-              <p class="text-gray-600 mt-2">1 Bedroom · 24/7 Light · Gated</p>
-              <div class="flex items-center justify-between mt-4">
-                <span class="text-blue-600 font-semibold text-lg">$500/mo</span>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-              </div>
-            </div>
-          </div>
+  <!-- Location Buttons -->
+  <div class="flex flex-wrap justify-center gap-4 mb-10">
+    <button onclick="showCategory('schoolgate')" class="category-btn bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium">School Gate</button>
+    <button onclick="showCategory('satellite')" class="category-btn bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-800 px-6 py-2 rounded-full font-medium">Satellite Gate</button>
+    <button onclick="showCategory('iworoko')" class="category-btn bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-800 px-6 py-2 rounded-full font-medium">Iworoko</button>
+    <button onclick="showCategory('phasetwo')" class="category-btn bg-gray-200 hover:bg-blue-600 hover:text-white text-gray-800 px-6 py-2 rounded-full font-medium">Phase Two</button>
+  </div>
+
+  <!-- Listings Container -->
+  <div id="schoolgate" class="category-section grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+    <!-- School Gate Listings -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
+      <div class="p-5">
+        <h4 class="text-xl font-semibold text-gray-800">Classic Apartment</h4>
+        <p class="text-gray-600 mt-2">2 Bedrooms · Wi-Fi · Near EKSU</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="text-blue-600 font-semibold text-lg">$700/mo</span>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
         </div>
       </div>
-
-      <!-- Satellite Gate -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">🛰️ Satellite Gate</h3>
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-            <img src="https://images.unsplash.com/photo-1598300056393-4a3e4b74e0b2?auto=format&fit=crop&w=800&q=80" alt="Luxury Home" class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h4 class="text-xl font-semibold text-gray-800">Luxury Duplex</h4>
-              <p class="text-gray-600 mt-2">3 Bedrooms · AC · Parking Space</p>
-              <div class="flex items-center justify-between mt-4">
-                <span class="text-blue-600 font-semibold text-lg">$1,200/mo</span>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-            <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="Mini Flat" class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h4 class="text-xl font-semibold text-gray-800">Mini Flat</h4>
-              <p class="text-gray-600 mt-2">1 Bedroom · Kitchen · Gated Compound</p>
-              <div class="flex items-center justify-between mt-4">
-                <span class="text-blue-600 font-semibold text-lg">$650/mo</span>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Iworoko -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">🏠 Iworoko</h3>
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-            <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" alt="Cozy Studio" class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h4 class="text-xl font-semibold text-gray-800">Cozy Studio</h4>
-              <p class="text-gray-600 mt-2">1 Bedroom · Borehole · Close to Market</p>
-              <div class="flex items-center justify-between mt-4">
-                <span class="text-blue-600 font-semibold text-lg">$400/mo</span>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Phase Two -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">🏡 Phase Two</h3>
-        <div class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8">
-          <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-            <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" alt="Modern Home" class="w-full h-56 object-cover">
-            <div class="p-5">
-              <h4 class="text-xl font-semibold text-gray-800">Modern Home</h4>
-              <p class="text-gray-600 mt-2">2 Bedrooms · Balcony · 24/7 Water</p>
-              <div class="flex items-center justify-between mt-4">
-                <span class="text-blue-600 font-semibold text-lg">$850/mo</span>
-                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </div>
 
+  <!-- Satellite Gate Listings -->
+  <div id="satellite" class="category-section hidden grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+      <img src="https://images.unsplash.com/photo-1598300056393-4a3e4b74e0b2?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
+      <div class="p-5">
+        <h4 class="text-xl font-semibold text-gray-800">Luxury Duplex</h4>
+        <p class="text-gray-600 mt-2">3 Bedrooms · AC · Parking Space</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="text-blue-600 font-semibold text-lg">$1,200/mo</span>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Iworoko Listings -->
+  <div id="iworoko" class="category-section hidden grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+      <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
+      <div class="p-5">
+        <h4 class="text-xl font-semibold text-gray-800">Cozy Studio</h4>
+        <p class="text-gray-600 mt-2">1 Bedroom · Borehole · Close to Market</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="text-blue-600 font-semibold text-lg">$400/mo</span>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase Two Listings -->
+  <div id="phasetwo" class="category-section hidden grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-w-6xl mx-auto">
+    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+      <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=800&q=80" class="w-full h-56 object-cover" alt="">
+      <div class="p-5">
+        <h4 class="text-xl font-semibold text-gray-800">Modern Home</h4>
+        <p class="text-gray-600 mt-2">2 Bedrooms · Balcony · 24/7 Water</p>
+        <div class="flex items-center justify-between mt-4">
+          <span class="text-blue-600 font-semibold text-lg">$850/mo</span>
+          <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Script for category switching -->
+<script>
+  function showCategory(category) {
+    // hide all
+    document.querySelectorAll('.category-section').forEach(sec => sec.classList.add('hidden'));
+    // show selected
+    document.getElementById(category).classList.remove('hidden');
+
+    // button styling
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.classList.remove('bg-blue-600', 'text-white');
+      btn.classList.add('bg-gray-200', 'text-gray-800');
+    });
+    event.target.classList.add('bg-blue-600', 'text-white');
+    event.target.classList.remove('bg-gray-200', 'text-gray-800');
+  }
+</script>
 
   <!-- Footer -->
   <footer class="bg-white py-6 text-center text-gray-600 border-t mt-10">
@@ -159,6 +147,7 @@
 
 </body>
 </html>
+
 
 
 
