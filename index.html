@@ -507,11 +507,8 @@
       </div>
     </div>
   </div>
-</section>
 
-<!-- Other sections above -->
-
-<!-- Location Section -->
+  <!-- Location Section -->
 <section id="location" class="py-16 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold text-gray-800 mb-8">EKSU Campus Demo Locations</h2>
@@ -520,47 +517,39 @@
   </div>
 </section>
 
-<!-- Google Maps API (replace YOUR_API_KEY with a real one) -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script>
-  function initMap() {
-    // Center of EKSU
-    const eksuCenter = { lat: 7.6283, lng: 5.2180 };
+<!-- Location Section -->
+<section id="location" class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">EKSU Campus Demo Locations</h2>
+    <p class="text-gray-600 mb-8">Click on a gate to see details.</p>
 
-    const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 15,
-      center: eksuCenter,
-    });
+    <!-- Demo Map (SVG / placeholder) -->
+    <div class="relative w-full h-96 bg-blue-100 rounded-lg shadow-lg">
+      
+      <!-- Gates as clickable points -->
+      <div class="absolute top-10 left-20 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="School Gate">
+        School Gate
+      </div>
 
-    // Demo gates
-    const gates = [
-      { name: "School Gate", position: { lat: 7.6290, lng: 5.2185 } },
-      { name: "Iworoko Gate", position: { lat: 7.6255, lng: 5.2150 } },
-      { name: "Phase Two Gate", position: { lat: 7.6310, lng: 5.2200 } },
-      { name: "Satellite Gate", position: { lat: 7.6275, lng: 5.2220 } },
-      { name: "Osekita", position: { lat: 7.6240, lng: 5.2170 } },
-    ];
+      <div class="absolute top-32 left-10 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Iworoko Gate">
+        Iworoko Gate
+      </div>
 
-    // Add markers with info windows
-    gates.forEach(gate => {
-      const marker = new google.maps.Marker({
-        position: gate.position,
-        map: map,
-        title: gate.name
-      });
+      <div class="absolute top-20 right-20 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Phase Two Gate">
+        Phase Two Gate
+      </div>
 
-      const infoWindow = new google.maps.InfoWindow({
-        content: `<h3>${gate.name}</h3>`
-      });
+      <div class="absolute bottom-24 left-28 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Satellite Gate">
+        Satellite Gate
+      </div>
 
-      marker.addListener("click", () => {
-        infoWindow.open(map, marker);
-      });
-    });
-  }
+      <div class="absolute bottom-10 right-16 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Osekita">
+        Osekita
+      </div>
 
-  window.onload = initMap;
-</script>
+    </div>
+  </div>
+</section>
 
   <!-- CALL TO ACTION SECTION -->
 <section class="bg-blue-600 text-white py-20 text-center">
@@ -617,6 +606,7 @@
 
 </body>
 </html>
+
 
 
 
