@@ -23,8 +23,8 @@
 
     <div class="space-x-6">
       <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
-      <a href="./Listing.html" class="text-gray-700 hover:text-blue-600 font-medium">Listings</a>
-      <a href="./Features.html" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
+      <a href="#view" class="text-gray-700 hover:text-blue-600 font-medium">Listings</a>
+      <a href="#feature" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
       <button id="loginBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium">
         Login
       </button>
@@ -42,7 +42,7 @@
         <input type="text" placeholder="Email or JAMB Reg" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
         <input type="password" placeholder="Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
         <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
-          Login
+          <a href="./inProgress.html">Login</a>
         </button>
       </form>
       <button id="closeLogin" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
@@ -127,50 +127,162 @@
       <h1 class="text-5xl md:text-6xl font-bold mb-4">Find Your Next Accommodation</h1>
       <p class="text-lg md:text-xl mb-6">Discover modern interiors, cozy apartments, and verified homes that suit your lifestyle.</p>
       <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });" 
-         class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white font-medium shadow-lg">Get Started</button> </div> </section>
+         class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white font-medium shadow-lg">Get Started</button> </div> 
+  </section>
+
+  <!-- 🏡 FEATURE LISTING / AREA SECTION -->
+<section class="py-16 bg-gray-50" id="areas">
+  <div class="max-w-6xl mx-auto px-4 text-center" id="view">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">Find Hostels by Area</h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- School Gate -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="./Images/School gate 2.png" alt="School Gate Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">School Gate</h3>
+          <p class="text-gray-600 mb-4">Hostels close to university entrance for quick access to campus.</p>
+          <button onclick="openModal('schoolgate')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Satellite Gate -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="./Images/Satellite pic.png" alt="Satellite Gate Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Satellite Gate</h3>
+          <p class="text-gray-600 mb-4">Peaceful environment with affordable hostels and easy transport.</p>
+          <button onclick="openModal('satellite')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Iworoko -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="./Images/Iworoko pics.png" alt="Iworoko Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Iworoko</h3>
+          <p class="text-gray-600 mb-4">Student-friendly area with cheaper hostels and food options.</p>
+          <button onclick="openModal('iworoko')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Phase Two -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="./Images/Phase 2 pic.png" alt="Phase Two Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Phase Two</h3>
+          <p class="text-gray-600 mb-4">Modern hostels with top-notch facilities and close amenities.</p>
+          <button onclick="openModal('phase2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 💡 MODALS SECTION -->
+<div id="modal-container" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div id="modal-content" class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
+    <h2 id="modal-title" class="text-2xl font-semibold mb-4 text-blue-600"></h2>
+    <div id="modal-body" class="grid md:grid-cols-3 gap-4"></div>
+    <div class="mt-6 flex justify-end">
+      <button onclick="closeModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- 💻 SCRIPT -->
+<script>
+  const hostels = {
+    schoolgate: [
+      { name: "Elite Hostel", price: "₦250,000/year — 5 min walk to campus", img: "./Images/School gate 2.png" },
+      { name: "Comfort Villa", price: "₦200,000/year — Free Wi-Fi and water", img: "./Images/School gate 2.png" },
+      { name: "Prime Lodge", price: "₦300,000/year — Close to mini mart", img: "./Images/School gate 2.png" }
+    ],
+    satellite: [
+      { name: "Harmony Lodge", price: "₦220,000/year — 24/7 Power Supply", img: "./Images/Satellite pic.png" },
+      { name: "Satellite Suites", price: "₦280,000/year — Spacious and clean rooms", img: "./Images/Satellite pic.png" },
+      { name: "Peace Court", price: "₦230,000/year — Security guaranteed", img: "./Images/Satellite pic.png" }
+    ],
+    iworoko: [
+      { name: "Victory Hostel", price: "₦180,000/year — Budget-friendly", img: "./Images/Iworoko pics.png" },
+      { name: "Student Villa", price: "₦190,000/year — Close to local markets", img: "./Images/Iworoko pics.png" },
+      { name: "Golden Stay", price: "₦200,000/year — Constant water & Wi-Fi", img: "./Images/Iworoko pics.png" }
+    ],
+    phase2: [
+      { name: "Luxury Haven", price: "₦350,000/year — Premium furnished rooms", img: "./Images/Phase 2 pic.png" },
+      { name: "Prime Villa", price: "₦340,000/year — Water & 24hr Power", img: "./Images/Phase 2 pic.png" },
+      { name: "Serene Lodge", price: "₦320,000/year — CCTV & Security Guard", img: "./Images/Phase 2 pic.png" }
+    ]
+  };
+
+  function openModal(area) {
+    const modal = document.getElementById("modal-container");
+    const title = document.getElementById("modal-title");
+    const body = document.getElementById("modal-body");
+    title.textContent = `Hostels around ${area.charAt(0).toUpperCase() + area.slice(1)}`;
+    body.innerHTML = hostels[area]
+      .map(h => `
+        <div class="border rounded-lg overflow-hidden shadow">
+          <img src="${h.img}" class="w-full h-40 object-cover">
+          <div class="p-3">
+            <h4 class="font-bold text-gray-800">${h.name}</h4>
+            <p class="text-gray-600 text-sm">${h.price}</p>
+          </div>
+        </div>
+      `).join("");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("modal-container");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+</script>
 
 <!-- FEATURED AREAS SECTION (uses local images in images/...) -->
 <section class="py-16 px-6 bg-gray-100 text-center">
-  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10">Available Areas</h2>
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10" id="feature">Available Areas</h2>
 
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
     <!-- SCHOOL GATE -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-      <img src="images/schoolgate.jpg" alt="School Gate" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=School+Gate'">
+      <img src="./Images\download.jpg" alt="School Gate" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=School+Gate'">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">School Gate</h3>
         <p class="text-gray-600 mt-2">Hostels close to the main campus gate with easy transport access.</p>
-        <button onclick="openHostel('schoolGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <button onclick="openHostel('schoolGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">Book Hostels</button>
       </div>
     </div>
 
     <!-- SATELLITE GATE -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-      <img src="images/satellite.jpg" alt="Satellite Gate" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Satellite+Gate'">
+      <img src="./Images/Satellite pic.png" alt="Satellite Gate" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Satellite+Gate'">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">Satellite Gate</h3>
         <p class="text-gray-600 mt-2">Modern lodges with reliable light and water supply.</p>
-        <button onclick="openHostel('satelliteGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <button onclick="openHostel('satelliteGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">Book Hostels</button>
       </div>
     </div>
 
     <!-- IWOROKO -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-      <img src="images/iworoko.jpg" alt="Iworoko" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Iworoko'">
+      <img src="./Images/Iworoko pics.png" alt="Iworoko" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Iworoko'">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">Iworoko</h3>
         <p class="text-gray-600 mt-2">Affordable hostels close to local shops and transport links.</p>
-        <button onclick="openHostel('iworoko')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <button onclick="openHostel('iworoko')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">Book Hostels</button>
       </div>
     </div>
 
     <!-- PHASE TWO -->
     <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
-      <img src="images/phasetwo.jpg" alt="Phase Two" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Phase+Two'">
+      <img src="./Images/Phase 2 pic.png" alt="Phase Two" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Phase+Two'">
       <div class="p-5">
         <h3 class="text-2xl font-semibold text-gray-800">Phase Two</h3>
         <p class="text-gray-600 mt-2">Peaceful area with clean, secure shared apartments.</p>
-        <button onclick="openHostel('phaseTwo')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+        <button onclick="openHostel('phaseTwo')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">Book Hostels</button>
       </div>
     </div>
   </div>
@@ -219,20 +331,20 @@
   // Hostels data: images point to local images/hostelX.jpg (you must upload them)
   const hostelData = {
     schoolGate: [
-      { name: "Grace Villa", price: "₦180,000 / year", image: "images/hostel1.jpg" },
-      { name: "Peace Lodge", price: "₦200,000 / year", image: "images/hostel2.jpg" }
+      { name: "Grace Villa", price: "₦180,000 / year", VideoFrame: "./Images/School Gate.mp4" },
+      { name: "Peace Lodge", price: "₦200,000 / year", image: "./Images/School Gate.mp4" }
     ],
     satelliteGate: [
-      { name: "Royal Suites", price: "₦250,000 / year", image: "images/hostel3.jpg" },
-      { name: "Comfort Villa", price: "₦230,000 / year", image: "images/hostel4.jpg" }
+      { name: "Royal Suites", price: "₦250,000 / year", image: "./Images/Satellite pic.png" },
+      { name: "Comfort Villa", price: "₦230,000 / year", image: "./Images/Satellite pic.png" }
     ],
     iworoko: [
-      { name: "Victory Lodge", price: "₦150,000 / year", image: "images/hostel1.jpg" },
-      { name: "Divine Hostel", price: "₦170,000 / year", image: "images/hostel2.jpg" }
+      { name: "Victory Lodge", price: "₦150,000 / year", image: "./Images/Iworoko main.mp4" },
+      { name: "Divine Hostel", price: "₦170,000 / year", image: "./Images/Iworoko main.mp4" }
     ],
     phaseTwo: [
-      { name: "Harmony Place", price: "₦220,000 / year", image: "images/hostel3.jpg" },
-      { name: "Golden Homes", price: "₦240,000 / year", image: "images/hostel4.jpg" }
+      { name: "Harmony Place", price: "₦220,000 / year", image: "./Images/Phase 2.mp4" },
+      { name: "Golden Homes", price: "₦240,000 / year", image: "./Images/Phase 2.mp4" }
     ]
   };
 
@@ -310,116 +422,7 @@
   }
 </script>
 
-  <!-- 🏡 FEATURE LISTING / AREA SECTION -->
-<section class="py-16 bg-gray-50" id="areas">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-8">Find Hostels by Area</h2>
 
-    <div class="grid md:grid-cols-4 gap-8">
-      <!-- School Gate -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-        <img src="images/schoolgate.jpg" alt="School Gate Area" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-2">School Gate</h3>
-          <p class="text-gray-600 mb-4">Hostels close to university entrance for quick access to campus.</p>
-          <button onclick="openModal('schoolgate')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
-        </div>
-      </div>
-
-      <!-- Satellite Gate -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-        <img src="images/satellite.jpg" alt="Satellite Gate Area" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Satellite Gate</h3>
-          <p class="text-gray-600 mb-4">Peaceful environment with affordable hostels and easy transport.</p>
-          <button onclick="openModal('satellite')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
-        </div>
-      </div>
-
-      <!-- Iworoko -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-        <img src="images/iworoko.jpg" alt="Iworoko Area" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Iworoko</h3>
-          <p class="text-gray-600 mb-4">Student-friendly area with cheaper hostels and food options.</p>
-          <button onclick="openModal('iworoko')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
-        </div>
-      </div>
-
-      <!-- Phase Two -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-        <img src="images/phase2.jpg" alt="Phase Two Area" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Phase Two</h3>
-          <p class="text-gray-600 mb-4">Modern hostels with top-notch facilities and close amenities.</p>
-          <button onclick="openModal('phase2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 💡 MODALS SECTION -->
-<div id="modal-container" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
-  <div id="modal-content" class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
-    <h2 id="modal-title" class="text-2xl font-semibold mb-4 text-blue-600"></h2>
-    <div id="modal-body" class="grid md:grid-cols-3 gap-4"></div>
-    <div class="mt-6 flex justify-end">
-      <button onclick="closeModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- 💻 SCRIPT -->
-<script>
-  const hostels = {
-    schoolgate: [
-      { name: "Elite Hostel", price: "₦250,000/year — 5 min walk to campus", img: "images/hostel1.jpg" },
-      { name: "Comfort Villa", price: "₦200,000/year — Free Wi-Fi and water", img: "images/hostel2.jpg" },
-      { name: "Prime Lodge", price: "₦300,000/year — Close to mini mart", img: "images/hostel3.jpg" }
-    ],
-    satellite: [
-      { name: "Harmony Lodge", price: "₦220,000/year — 24/7 Power Supply", img: "images/hostel4.jpg" },
-      { name: "Satellite Suites", price: "₦280,000/year — Spacious and clean rooms", img: "images/hostel5.jpg" },
-      { name: "Peace Court", price: "₦230,000/year — Security guaranteed", img: "images/hostel6.jpg" }
-    ],
-    iworoko: [
-      { name: "Victory Hostel", price: "₦180,000/year — Budget-friendly", img: "images/hostel7.jpg" },
-      { name: "Student Villa", price: "₦190,000/year — Close to local markets", img: "images/hostel8.jpg" },
-      { name: "Golden Stay", price: "₦200,000/year — Constant water & Wi-Fi", img: "images/hostel9.jpg" }
-    ],
-    phase2: [
-      { name: "Luxury Haven", price: "₦350,000/year — Premium furnished rooms", img: "images/hostel10.jpg" },
-      { name: "Prime Villa", price: "₦340,000/year — Water & 24hr Power", img: "images/hostel11.jpg" },
-      { name: "Serene Lodge", price: "₦320,000/year — CCTV & Security Guard", img: "images/hostel12.jpg" }
-    ]
-  };
-
-  function openModal(area) {
-    const modal = document.getElementById("modal-container");
-    const title = document.getElementById("modal-title");
-    const body = document.getElementById("modal-body");
-    title.textContent = `Hostels around ${area.charAt(0).toUpperCase() + area.slice(1)}`;
-    body.innerHTML = hostels[area]
-      .map(h => `
-        <div class="border rounded-lg overflow-hidden shadow">
-          <img src="${h.img}" class="w-full h-40 object-cover">
-          <div class="p-3">
-            <h4 class="font-bold text-gray-800">${h.name}</h4>
-            <p class="text-gray-600 text-sm">${h.price}</p>
-          </div>
-        </div>
-      `).join("");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-  }
-
-  function closeModal() {
-    const modal = document.getElementById("modal-container");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-  }
-</script>
 
   <!-- WHY CHOOSE US SECTION -->
 <section class="py-20 bg-white text-center">
@@ -624,47 +627,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
