@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Home - Find Your Next Accommodation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+     <!-- Navbar -->
+  <nav class="flex items-center justify-between px-8 py-4 bg-white shadow">
+    <div class="flex items-center space-x-3">
+      <h1 class="text-2xl font-bold text-blue-600">SecureHomes</h1>
+    </div>
+
+    <div class="space-x-6">
+      <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+      <a href="./Listing.html" class="text-gray-700 hover:text-blue-600 font-medium">Listings</a>
+      <a href="./Features.html" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
+      <button id="loginBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium">
+        Login
+      </button>
+      <button id="signupBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full font-medium">
+        Sign Up
+      </button>
+    </div>
+  </nav>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 relative">
+      <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+      <form id="loginForm" class="space-y-4">
+        <input type="text" placeholder="Email or JAMB Reg" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="password" placeholder="Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          Login
+        </button>
+      </form>
+      <button id="closeLogin" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden overflow-auto">
+    <div class="bg-white rounded-lg shadow-lg p-8 w-96 relative">
+      <h2 class="text-2xl font-bold mb-4 text-center">Sign Up</h2>
+      <form id="signupForm" class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="text" placeholder="Username" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="email" placeholder="Email" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="password" placeholder="Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="password" placeholder="Confirm Password" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <input type="text" placeholder="JAMB Registration Number" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <label class="block text-gray-700">Upload JAMB Admission Letter:</label>
+        <input type="file" accept=".pdf,.jpg,.png" class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          Sign Up
+        </button>
+      </form>
+      <button id="closeSignup" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Buttons
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+
+    // Modals
+    const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+
+    // Close buttons
+    const closeLogin = document.getElementById('closeLogin');
+    const closeSignup = document.getElementById('closeSignup');
+
+    // Show login modal
+    loginBtn.addEventListener('click', () => loginModal.classList.remove('hidden'));
+
+    // Show signup modal
+    signupBtn.addEventListener('click', () => signupModal.classList.remove('hidden'));
+
+    // Close modals
+    closeLogin.addEventListener('click', () => loginModal.classList.add('hidden'));
+    closeSignup.addEventListener('click', () => signupModal.classList.add('hidden'));
+
+    // Close modals by clicking outside
+    loginModal.addEventListener('click', e => { if(e.target === loginModal) loginModal.classList.add('hidden'); });
+    signupModal.addEventListener('click', e => { if(e.target === signupModal) signupModal.classList.add('hidden'); });
+
+    // Form submission (replace alert with backend logic)
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Login submitted!');
+      loginModal.classList.add('hidden');
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Sign Up submitted!');
+      signupModal.classList.add('hidden');
+    });
+  </script>
+  
+  <!-- Hero Banner Section -->
+  <section class="relative h-[90vh] flex items-center justify-center text-white">
+    <!-- Background Image -->
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80" 
+         alt="Interior Home Design" 
+         class="absolute inset-0 w-full h-full object-cover opacity-80">
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+    
+<!--Hero Content-->
+  <div class="relative z-10 text-center px-6">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Find Your Next Accommodation</h1>
+      <p class="text-lg md:text-xl mb-6">Discover modern interiors, cozy apartments, and verified homes that suit your lifestyle.</p>
+      <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });" 
+         class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full text-white font-medium shadow-lg">Get Started</button> </div> </section>
+
+<!-- FEATURED AREAS SECTION (uses local images in images/...) -->
+<section class="py-16 px-6 bg-gray-100 text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10">Available Areas</h2>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+    <!-- SCHOOL GATE -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="./im" alt="School Gate" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=School+Gate'">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">School Gate</h3>
+        <p class="text-gray-600 mt-2">Hostels close to the main campus gate with easy transport access.</p>
+        <button onclick="openHostel('schoolGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+      </div>
+    </div>
+
+    <!-- SATELLITE GATE -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="images/satellite.jpg" alt="Satellite Gate" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Satellite+Gate'">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">Satellite Gate</h3>
+        <p class="text-gray-600 mt-2">Modern lodges with reliable light and water supply.</p>
+        <button onclick="openHostel('satelliteGate')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+      </div>
+    </div>
+
+    <!-- IWOROKO -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="images/iworoko.jpg" alt="Iworoko" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Iworoko'">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">Iworoko</h3>
+        <p class="text-gray-600 mt-2">Affordable hostels close to local shops and transport links.</p>
+        <button onclick="openHostel('iworoko')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+      </div>
+    </div>
+
+    <!-- PHASE TWO -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition overflow-hidden">
+      <img src="images/phasetwo.jpg" alt="Phase Two" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x480/cccccc/444444?text=Phase+Two'">
+      <div class="p-5">
+        <h3 class="text-2xl font-semibold text-gray-800">Phase Two</h3>
+        <p class="text-gray-600 mt-2">Peaceful area with clean, secure shared apartments.</p>
+        <button onclick="openHostel('phaseTwo')" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 mt-4 rounded-full font-medium">View Hostels</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOSTEL POPUP MODAL (centered) -->
+<div id="hostelModal" class="fixed inset-0 hidden z-50">
+  <!-- backdrop + center container -->
+  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+  <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+    <div id="hostelModalInner" class="bg-white rounded-2xl w-full max-w-3xl p-6 shadow-2xl transform transition-all scale-100">
+      <button onclick="closeHostel()" class="absolute top-4 right-5 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+      <h3 id="modalTitle" class="text-2xl font-bold mb-4 text-center text-gray-800"></h3>
+      <div id="hostelList" class="grid md:grid-cols-2 gap-6"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BOOKING MODAL (centered) -->
+<div id="bookingModal" class="fixed inset-0 hidden z-50">
+  <div class="absolute inset-0 bg-black bg-opacity-70"></div>
+  <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+    <div id="bookingModalInner" class="bg-white rounded-2xl w-full max-w-lg p-6 shadow-2xl">
+      <button onclick="closeBooking()" class="absolute top-4 right-5 text-gray-500 hover:text-red-500 text-2xl">&times;</button>
+      <h3 id="bookingTitle" class="text-2xl font-bold mb-4 text-center text-gray-800"></h3>
+
+      <form id="bookingForm" class="space-y-4">
+        <input type="text" id="userName" placeholder="Full Name" required class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="tel" id="userPhone" placeholder="Phone Number" required class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select id="bookingDuration" required class="w-full border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="">Select Duration</option>
+          <option value="1 Semester">1 Semester</option>
+          <option value="1 Year">1 Year</option>
+        </select>
+        <div class="flex gap-3">
+          <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-medium">Proceed to Payment</button>
+          <button type="button" onclick="closeBooking()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-full font-medium">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT: modal + local images fallback + booking -->
+<script>
+  // Hostels data: images point to local images/hostelX.jpg (you must upload them)
+  const hostelData = {
+    schoolGate: [
+      { name: "Grace Villa", price: "₦180,000 / year", image: "images/hostel1.jpg" },
+      { name: "Peace Lodge", price: "₦200,000 / year", image: "images/hostel2.jpg" }
+    ],
+    satelliteGate: [
+      { name: "Royal Suites", price: "₦250,000 / year", image: "images/hostel3.jpg" },
+      { name: "Comfort Villa", price: "₦230,000 / year", image: "images/hostel4.jpg" }
+    ],
+    iworoko: [
+      { name: "Victory Lodge", price: "₦150,000 / year", image: "images/hostel1.jpg" },
+      { name: "Divine Hostel", price: "₦170,000 / year", image: "images/hostel2.jpg" }
+    ],
+    phaseTwo: [
+      { name: "Harmony Place", price: "₦220,000 / year", image: "images/hostel3.jpg" },
+      { name: "Golden Homes", price: "₦240,000 / year", image: "images/hostel4.jpg" }
+    ]
+  };
+
+  // helper: safely open modal (centered)
+  function openHostel(area) {
+    const modal = document.getElementById("hostelModal");
+    const title = document.getElementById("modalTitle");
+    const list = document.getElementById("hostelList");
+
+    // guard: if area not found, do nothing
+    if (!hostelData[area]) {
+      alert("No hostels found for this area.");
+      return;
+    }
+
+    title.innerText = area.replace(/([A-Z])/g, ' $1').trim() + " Hostels";
+    list.innerHTML = hostelData[area].map(hostel => `
+      <div class="border rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
+        <img src="${hostel.image}" class="w-full h-40 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/444444?text=Hostel'">
+        <div class="p-4">
+          <h4 class="font-semibold text-lg">${hostel.name}</h4>
+          <p class="text-gray-600">${hostel.price}</p>
+          <button onclick="openBooking('${escapeHtml(hostel.name)}','${escapeHtml(hostel.price)}')" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-full">Book Now</button>
+        </div>
+      </div>
+    `).join("");
+
+    // show modal and lock body scroll
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeHostel() {
+    const modal = document.getElementById("hostelModal");
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  // Booking modal
+  function openBooking(hostelName, price) {
+    closeHostel();
+    const bookingModal = document.getElementById("bookingModal");
+    document.getElementById("bookingTitle").innerText = `Booking — ${hostelName}`;
+    bookingModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+
+    // handle submit
+    const form = document.getElementById("bookingForm");
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      const userName = document.getElementById("userName").value.trim();
+      const userPhone = document.getElementById("userPhone").value.trim();
+      const duration = document.getElementById("bookingDuration").value;
+      if (!userName || !userPhone || !duration) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      // simulate payment / success
+      alert(`✅ Booking submitted!\nHostel: ${hostelName}\nPrice: ${price}\nName: ${userName}\nPhone: ${userPhone}\nDuration: ${duration}`);
+      closeBooking();
+    };
+  }
+
+  function closeBooking() {
+    document.getElementById("bookingModal").classList.add("hidden");
+    document.body.style.overflow = "";
+    // reset form
+    document.getElementById("bookingForm").reset();
+  }
+
+  // small utility to escape quotes passed into onClick strings
+  function escapeHtml(str) {
+    return String(str).replace(/'/g, "\\'").replace(/"/g, '\\"');
+  }
+</script>
+
+  <!-- 🏡 FEATURE LISTING / AREA SECTION -->
+<section class="py-16 bg-gray-50" id="areas">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8">Find Hostels by Area</h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <!-- School Gate -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="images/schoolgate.jpg" alt="School Gate Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">School Gate</h3>
+          <p class="text-gray-600 mb-4">Hostels close to university entrance for quick access to campus.</p>
+          <button onclick="openModal('schoolgate')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Satellite Gate -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="images/satellite.jpg" alt="Satellite Gate Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Satellite Gate</h3>
+          <p class="text-gray-600 mb-4">Peaceful environment with affordable hostels and easy transport.</p>
+          <button onclick="openModal('satellite')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Iworoko -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="images/iworoko.jpg" alt="Iworoko Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Iworoko</h3>
+          <p class="text-gray-600 mb-4">Student-friendly area with cheaper hostels and food options.</p>
+          <button onclick="openModal('iworoko')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+
+      <!-- Phase Two -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+        <img src="images/phase2.jpg" alt="Phase Two Area" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Phase Two</h3>
+          <p class="text-gray-600 mb-4">Modern hostels with top-notch facilities and close amenities.</p>
+          <button onclick="openModal('phase2')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">View Hostels</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 💡 MODALS SECTION -->
+<div id="modal-container" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div id="modal-content" class="bg-white rounded-lg shadow-lg w-11/12 md:w-2/3 p-6">
+    <h2 id="modal-title" class="text-2xl font-semibold mb-4 text-blue-600"></h2>
+    <div id="modal-body" class="grid md:grid-cols-3 gap-4"></div>
+    <div class="mt-6 flex justify-end">
+      <button onclick="closeModal()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- 💻 SCRIPT -->
+<script>
+  const hostels = {
+    schoolgate: [
+      { name: "Elite Hostel", price: "₦250,000/year — 5 min walk to campus", img: "images/hostel1.jpg" },
+      { name: "Comfort Villa", price: "₦200,000/year — Free Wi-Fi and water", img: "images/hostel2.jpg" },
+      { name: "Prime Lodge", price: "₦300,000/year — Close to mini mart", img: "images/hostel3.jpg" }
+    ],
+    satellite: [
+      { name: "Harmony Lodge", price: "₦220,000/year — 24/7 Power Supply", img: "images/hostel4.jpg" },
+      { name: "Satellite Suites", price: "₦280,000/year — Spacious and clean rooms", img: "images/hostel5.jpg" },
+      { name: "Peace Court", price: "₦230,000/year — Security guaranteed", img: "images/hostel6.jpg" }
+    ],
+    iworoko: [
+      { name: "Victory Hostel", price: "₦180,000/year — Budget-friendly", img: "images/hostel7.jpg" },
+      { name: "Student Villa", price: "₦190,000/year — Close to local markets", img: "images/hostel8.jpg" },
+      { name: "Golden Stay", price: "₦200,000/year — Constant water & Wi-Fi", img: "images/hostel9.jpg" }
+    ],
+    phase2: [
+      { name: "Luxury Haven", price: "₦350,000/year — Premium furnished rooms", img: "images/hostel10.jpg" },
+      { name: "Prime Villa", price: "₦340,000/year — Water & 24hr Power", img: "images/hostel11.jpg" },
+      { name: "Serene Lodge", price: "₦320,000/year — CCTV & Security Guard", img: "images/hostel12.jpg" }
+    ]
+  };
+
+  function openModal(area) {
+    const modal = document.getElementById("modal-container");
+    const title = document.getElementById("modal-title");
+    const body = document.getElementById("modal-body");
+    title.textContent = `Hostels around ${area.charAt(0).toUpperCase() + area.slice(1)}`;
+    body.innerHTML = hostels[area]
+      .map(h => `
+        <div class="border rounded-lg overflow-hidden shadow">
+          <img src="${h.img}" class="w-full h-40 object-cover">
+          <div class="p-3">
+            <h4 class="font-bold text-gray-800">${h.name}</h4>
+            <p class="text-gray-600 text-sm">${h.price}</p>
+          </div>
+        </div>
+      `).join("");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("modal-container");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+</script>
+
+  <!-- WHY CHOOSE US SECTION -->
+<section class="py-20 bg-white text-center">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10" data-aos="fade-up">
+      Why Choose <span class="text-blue-600">SecureHome</span>?
+    </h2>
+    <p class="text-gray-600 max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+      We understand what students and landlords need — safety, comfort, and reliability. 
+      Our platform connects you to the best verified hostels around your campus in just a few clicks.
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- CARD 1 -->
+      <div class="bg-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="zoom-in">
+        <div class="text-blue-600 text-5xl mb-4">🏡</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Verified Hostels</h3>
+        <p class="text-gray-600">Every hostel is carefully inspected and verified before being listed on our platform.</p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="bg-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="100">
+        <div class="text-blue-600 text-5xl mb-4">🔐</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Safe & Secure</h3>
+        <p class="text-gray-600">We ensure your safety through trusted landlords and secure booking processes.</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="bg-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="200">
+        <div class="text-blue-600 text-5xl mb-4">⚡</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fast Booking</h3>
+        <p class="text-gray-600">Get access to available hostels instantly and reserve your space with a single click.</p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="bg-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="300">
+        <div class="text-blue-600 text-5xl mb-4">💰</div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Affordable Prices</h3>
+        <p class="text-gray-600">Find hostels that fit your budget — quality accommodation made affordable for students.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Animation Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+  <!-- TESTIMONIALS SECTION -->
+<section class="py-20 bg-gray-50 text-center">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-10" data-aos="fade-up">
+      What Students Say
+    </h2>
+    <p class="text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+      Hear from students who’ve already found their perfect accommodation with SecureHome.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="fade-up">
+        <img src="https://i.pravatar.cc/100?img=1" alt="student1" class="w-20 h-20 rounded-full mx-auto mb-4">
+        <p class="text-gray-600 mb-3 italic">"I found a secure and affordable hostel near my faculty within minutes. SecureHome made it so easy!"</p>
+        <h3 class="font-semibold text-gray-800">Aisha – EKSU Student</h3>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://i.pravatar.cc/100?img=2" alt="student2" class="w-20 h-20 rounded-full mx-auto mb-4">
+        <p class="text-gray-600 mb-3 italic">"The listings are real and verified. I feel safe knowing my hostel was properly checked."</p>
+        <h3 class="font-semibold text-gray-800">David – EKSU Student</h3>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://i.pravatar.cc/100?img=3" alt="student3" class="w-20 h-20 rounded-full mx-auto mb-4">
+        <p class="text-gray-600 mb-3 italic">"I love how simple the website is! I’ll recommend SecureHome to all my friends."</p>
+        <h3 class="font-semibold text-gray-800">Grace – EKSU Student</h3>
+      </div>
+    </div>
+  </div>
+
+<!-- Location Section -->
+<section id="location" class="py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">EKSU Campus Demo Locations</h2>
+    <p class="text-gray-600 mb-8">Click on a gate to see details.</p>
+
+    <!-- Demo Map (SVG / placeholder) -->
+    <div class="relative w-full h-96 bg-blue-100 rounded-lg shadow-lg">
+      
+      <!-- Gates as clickable points -->
+      <div class="absolute top-10 left-20 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="School Gate">
+        School Gate
+      </div>
+
+      <div class="absolute top-32 left-10 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Iworoko Gate">
+        Iworoko Gate
+      </div>
+
+      <div class="absolute top-20 right-20 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Phase Two Gate">
+        Phase Two Gate
+      </div>
+
+      <div class="absolute bottom-24 left-28 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Satellite Gate">
+        Satellite Gate
+      </div>
+
+      <div class="absolute bottom-10 right-16 bg-white px-2 py-1 rounded-full shadow cursor-pointer hover:bg-blue-200" title="Osekita">
+        Osekita
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CALL TO ACTION SECTION -->
+<section class="bg-blue-600 text-white py-20 text-center">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="zoom-in">
+      Ready to Find Your Dream Hostel?
+    </h2>
+    <p class="text-blue-100 mb-8" data-aos="zoom-in" data-aos-delay="100">
+      Join thousands of students who trust SecureHome to connect them with safe, verified, and affordable hostels near campus.
+    </p>
+    <a href="#" class="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition" data-aos="zoom-in" data-aos-delay="200">
+      Get Started
+    </a>
+  </div>
+</section>
+  
+  <!-- Fill Your Contact Section -->
+<section id="contact" class="py-16 bg-gray-100">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Contacts Information</h2>
+    <form class="bg-white p-8 rounded-lg shadow-md space-y-6">
+      <div>
+        <label class="block text-gray-700 mb-2" for="name">Full Name</label>
+        <input class="w-full border border-gray-300 rounded p-2" type="text" id="name" placeholder="Enter your full name">
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-2" for="email">Email</label>
+        <input class="w-full border border-gray-300 rounded p-2" type="email" id="email" placeholder="Enter your email">
+      </div>
+      <div>
+        <label class="block text-gray-700 mb-2" for="email">Phone Number</label>
+        <input class="w-full border border-gray-300 rounded p-2" type="email" id="phone number" placeholder="Enter your phone number">
+      </div>
+       <div>
+        <label class="block text-gray-700 mb-2" for="message">Message</label>
+        <textarea class="w-full border border-gray-300 rounded p-2" id="message" placeholder="Write your message" rows="4"></textarea>
+      </div>
+      <button class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition duration-300" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
+
+  <!-- FOOTER SECTION -->
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+    <!-- Logo & About -->
+    <div>
+      <h3 class="text-2xl font-bold text-white mb-4">SecureHome</h3>
+      <p class="text-gray-400">Your trusted platform for finding safe and affordable student hostels around campus.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="text-xl font-semibold text-white mb-4">Quick Links</h4>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-blue-400">Home</a></li>
+        <li><a href="#" class="hover:text-blue-400">About</a></li>
+        <li><a href="#" class="hover:text-blue-400">Find Hostels</a></li>
+        <li><a href="#" class="hover:text-blue-400">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h4 class="text-xl font-semibold text-white mb-4">Contact</h4>
+      <p>Email: support@securehome.com</p>
+      <p>Phone: +234 812 345 6789</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#" class="hover:text-blue-400">🌐</a>
+        <a href="#" class="hover:text-blue-400">📘</a>
+        <a href="#" class="hover:text-blue-400">📸</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center text-gray-500 mt-12 border-t border-gray-700 pt-6">
+    &copy; 2025 SecureHome. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
